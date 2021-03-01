@@ -10,16 +10,12 @@ class Infogram {
   // API secret
   private $api_secret;
 
-  // Username
-  private $username;
-
   // Valid user settings
   private $valid = false;
 
   function __construct($init) {
     $this->api_key = $init['api_key'];
     $this->api_secret = $init['api_secret'];
-    $this->username = $init['username'];
     // if($this->check_settings() === true) {
       $this->valid = true;
     // }
@@ -29,7 +25,7 @@ class Infogram {
 
   // validate form
   function is_form_filled() {
-    if ($this->api_key == '' || $this->api_secret == '' || $this->username == '') {
+    if ($this->api_key == '' || $this->api_secret == '') {
       return false;
     } else {
       return true;
@@ -53,7 +49,7 @@ class Infogram {
   function check_settings() {
     $return = NULL;
     try {
-        $response = $this->send_request('GET', 'users/'.$this->username.'/infographics');
+        $response = $this->send_request('GET', 'infographics');
     } catch (Exception $ex) {
         echo $ex->getMessage();
     }
@@ -100,7 +96,7 @@ class Infogram {
 
   // send request to server
   function get_all_inforgaphics() {
-    $response = $this->send_request('GET', 'users/'.$this->username.'/infographics');
+    $response = $this->send_request('GET', 'infographics');
     if($this->is_ok($response) === true) {
       $infographics = $response->getBody();
       if (empty($infographics)) {

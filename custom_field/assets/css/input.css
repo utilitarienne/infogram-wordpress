@@ -1,0 +1,28 @@
+.acf-infogram-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.acf-infogram-flex .acf-input-wrap {
+  flex-basis: auto;
+  flex-shrink: 1;
+  flex-grow: 1;
+  padding: 0 0 0 0.75rem;
+}
+
+.acf-infogram-flex .acf-input-wrap input {
+  opacity: 0.7;
+}
+
+.acf-infogram-flex .infogram-selector-button {
+  display: block;
+  flex-basis: 8rem;
+  width: 8rem;
+  flex-shrink: 0;
+  flex-grow: 0;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  line-height: 24px;
+  height: 100%;
+}
